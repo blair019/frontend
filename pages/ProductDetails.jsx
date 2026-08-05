@@ -1,5 +1,6 @@
 import {Link, useParams} from 'react-router-dom'
 import {useEffect, useState} from "react";
+import {useCart} from "../context/CartContext.jsx";
 
 function ProductDetails() {
     const BASE_URL = import.meta.env.VITE_DJANGO_BASE_URL;
@@ -7,6 +8,7 @@ function ProductDetails() {
     const [product, setProduct] = useState({});
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const {addToCart} = useCart();
 
     useEffect(() => {
         fetch(`${BASE_URL}/api/product/${id}`, {})
@@ -52,7 +54,7 @@ function ProductDetails() {
                         </h1>
                         <p className="text-gray-600 mb-5">{product.description}</p>
                         <p className="text-2xl font-semibold text-gray-600 mb-6">{product.price}</p>
-                        <button className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">
+                        <button onClick={()=>addToCart(product)} className=" cursor-pointer bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">
                             Add to Cart
                         </button>
                         <div>
