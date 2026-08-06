@@ -5,13 +5,11 @@ function CartPage() {
         cartItems,
         removeFromCart,
         updateCartItems,
+        total
     } = useCart();
 
-    const total = cartItems.reduce(
-        (acc, item) =>
-            acc + Number(item.price) * Number(item.quantity),
-        0
-    );
+    const BASE_URL = import.meta.env.VITE_DJANGO_BASE_URL;
+
 
     return (
         <div className="min-h-screen bg-gray-100 px-8 pb-8 pt-24">
@@ -30,19 +28,29 @@ function CartPage() {
                             key={item.id}
                             className="mb-4 flex items-center justify-between border-b border-gray-200 pb-4"
                         >
+                            <div className="flex items-center gap-4">
+                                {item.product_image && (
+                                    <img
+                                        src={`${BASE_URL}${item.product_image}`}
+                                        alt={`${item.product_name}`}
+                                        className="w-20 h-20 object-cover rounded"
+                                    />
+                                )}
+
+                            </div>
                             <div>
                                 <h2 className="text-lg font-bold">
-                                    {item.name}
+                                    {item.product_name}
                                 </h2>
 
                                 <p className="text-gray-600">
-                                    ${Number(item.price).toFixed(2)}
+                                    ${Number(item.product_price).toFixed(2)}
                                 </p>
 
                                 <p className="text-sm text-gray-500">
                                     Subtotal: $
                                     {(
-                                        Number(item.price) *
+                                        Number(item.product_price) *
                                         Number(item.quantity)
                                     ).toFixed(2)}
                                 </p>
@@ -51,7 +59,7 @@ function CartPage() {
                             <div className="flex items-center gap-3">
                                 <button
                                     type="button"
-                                    className="rounded bg-gray-300 px-3 py-1 hover:bg-gray-400"
+                                    className="cursor-pointer rounded bg-gray-300 px-3 py-1 hover:bg-gray-400"
                                     onClick={() =>
                                         updateCartItems(
                                             item.id,
@@ -69,7 +77,7 @@ function CartPage() {
 
                                 <button
                                     type="button"
-                                    className="rounded bg-gray-300 px-3 py-1 hover:bg-gray-400"
+                                    className="cursor-pointer rounded bg-gray-300 px-3 py-1 hover:bg-gray-400"
                                     onClick={() =>
                                         updateCartItems(
                                             item.id,
@@ -82,7 +90,7 @@ function CartPage() {
 
                                 <button
                                     type="button"
-                                    className="ml-3 text-red-500 hover:text-red-700"
+                                    className="cursor-pointer ml-3 text-red-500 hover:text-red-700"
                                     onClick={() =>
                                         removeFromCart(item.id)
                                     }
