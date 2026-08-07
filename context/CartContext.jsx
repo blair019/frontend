@@ -81,6 +81,11 @@ export const CartProvider = ({ children }) => {
           }
     }
 
+    const clearCart = async () => {
+        setCartItems([]);
+        setTotal(0)
+    }
+
 
     return (
         <CartContext.Provider
@@ -89,7 +94,8 @@ export const CartProvider = ({ children }) => {
                 addToCart,
                 removeFromCart,
                 updateCartItems,
-                total
+                total,
+                clearCart
             }}
         >
             {children}
