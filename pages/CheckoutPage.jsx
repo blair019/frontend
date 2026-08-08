@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext.jsx"
 import ProductDetails from "./ProductDetails.jsx";
+import {authFetch} from "../utils/auth.js";
 
 
 function CheckoutPage() {
@@ -31,12 +32,12 @@ function CheckoutPage() {
         setLoading(true);
         setMessage("");
         try {
-            const res = await fetch(`${BASE_URL}/api/order/create/`, {
+            const res = await authFetch(`${BASE_URL}/api/order/create/`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({form})
+                body: JSON.stringify(form)
             });
             const json = await res.json();
 
@@ -102,13 +103,13 @@ function CheckoutPage() {
                     <button
                     type="submit"
                     disabled={loading}
-                    className="w-full rounded-lg bg-blue-500 text-white py-2 hover:bg-blue-600 transition duration-300"
+                    className="w-full cursor-pointer rounded-lg bg-blue-500 text-white py-2 hover:bg-blue-600 transition duration-300"
                     >
                         {loading ? "Processing..." : "Place Order"}
                     </button>
 
                     {message && (
-                        <p className="text-center text-green-700 font-semibold mt-4">
+                        <p className="text-center  font-semibold mt-4">
                             {message}
                         </p>
                     )}

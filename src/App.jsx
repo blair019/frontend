@@ -4,6 +4,9 @@ import ProductDetail from "../pages/ProductDetails.jsx";
 import Navbar from "../components/Navbar.jsx";
 import CartPage from "../pages/CartPage.jsx";
 import CheckoutPage from "../pages/CheckoutPage.jsx";
+import PrivateRouter from "../components/PrivateRouter.jsx";
+import Login from "../pages/Login.jsx";
+import Signup from "../pages/Signup.jsx";
 
 function App() {
     return (
@@ -14,7 +17,11 @@ function App() {
                     <Route path="/" element={<ProductList />} />
                     <Route path="/product/:id" element={<ProductDetail />} />
                     <Route path="/cart" element={<CartPage />} />
-                    <Route path="/checkout" element={<CheckoutPage />} />
+                    <Route element={<PrivateRouter />}>
+                        <Route path="/checkout" element={<CheckoutPage />} />
+                    </Route>
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/signup" element={<Signup />} />
                 </Routes>
             </Router>
         </div>
