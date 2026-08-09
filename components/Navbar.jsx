@@ -111,10 +111,10 @@ function Navbar() {
 
 
                         <span className="text-xl font-bold tracking-tight text-gray-950">
-                            Mohit
+                            Prospect
 
                             <span className="text-gray-400">
-                                Cart
+                                Pick
                             </span>
                         </span>
 
