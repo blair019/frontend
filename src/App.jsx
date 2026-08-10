@@ -13,6 +13,9 @@ import PrivateRouter from "../components/PrivateRouter.jsx";
 import Login from "../pages/Login.jsx";
 import Signup from "../pages/Signup.jsx";
 import OrderPage from "../pages/Orderpage.jsx";
+import OurStory from "../pages/OutStory.jsx";
+import FAQ from "../pages/FAQ.jsx";
+import Contact from "../pages/Contact.jsx";
 
 function App() {
     return (
@@ -43,6 +46,21 @@ function App() {
                 <Route
                     path="/signup"
                     element={<Signup />}
+                />
+
+                <Route
+                    path="/our-story"
+                    element={<OurStory />}
+                />
+
+                <Route
+                    path="/faq"
+                    element={<FAQ />}
+                />
+
+                <Route
+                    path="/contact"
+                    element={<Contact />}
                 />
 
 
