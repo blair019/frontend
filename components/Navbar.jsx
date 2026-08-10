@@ -135,10 +135,24 @@ function Navbar() {
 
 
                         <NavLink
-                            to="/"
+                            to="/our-story"
                             className={navLinkClass}
                         >
-                            Shop
+                            Our Story
+                        </NavLink>
+
+                        <NavLink
+                            to="/faq"
+                            className={navLinkClass}
+                        >
+                            FAQ
+                        </NavLink>
+
+                        <NavLink
+                            to="/contact"
+                            className={navLinkClass}
+                        >
+                            Contact
                         </NavLink>
 
 
