@@ -21,9 +21,15 @@ function ProductCard({ product }) {
         }
 
         try {
-            await addToCart(product.id);
+            await addToCart(
+                product.id,
+                product.name
+            );
         } catch (error) {
-            console.error("Failed to add product:", error);
+            console.error(
+                "Failed to add product:",
+                error
+            );
         }
     };
 
@@ -45,12 +51,14 @@ function ProductCard({ product }) {
                     </div>
                 </Link>
 
+
                 {/* Category */}
                 {product.category?.name && (
                     <span className="absolute left-4 top-4 rounded-full border border-white/60 bg-white/90 px-3.5 py-2 text-[11px] font-semibold text-gray-700 shadow-sm backdrop-blur-md">
                         {product.category.name}
                     </span>
                 )}
+
 
                 {/* Quick add */}
                 <button
@@ -84,6 +92,7 @@ function ProductCard({ product }) {
                         />
                     </svg>
                 </button>
+
             </div>
 
 
@@ -109,19 +118,23 @@ function ProductCard({ product }) {
 
                     </div>
 
+
                     <span className="shrink-0 rounded-full border border-[#d3c6b6] bg-[#e9dfd2] px-3 py-1.5 text-sm font-bold text-[#25221f]">
                         ${Number(product.price).toFixed(2)}
                     </span>
+
                 </div>
 
 
                 {/* Description */}
                 <div className="mt-3 min-h-[48px]">
+
                     {product.description && (
                         <p className="line-clamp-2 text-sm leading-6 text-[#746b61]">
                             {product.description}
                         </p>
                     )}
+
                 </div>
 
 
@@ -156,6 +169,7 @@ function ProductCard({ product }) {
                             </svg>
                         </Link>
 
+
                         <button
                             type="button"
                             onClick={handleAddToCart}
@@ -165,8 +179,11 @@ function ProductCard({ product }) {
                         </button>
 
                     </div>
+
                 </div>
+
             </div>
+
         </article>
     );
 }
