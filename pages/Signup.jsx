@@ -114,7 +114,7 @@ function Signup() {
                     <div className="relative z-10">
 
                         <div className="mb-8 inline-flex items-center rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs font-medium text-gray-300 backdrop-blur-md">
-                            Join MohitCart
+                            Join ProspectPick
                         </div>
 
                         <h1 className="max-w-md text-5xl font-semibold leading-[1.05] tracking-[-0.04em]">
@@ -241,9 +241,9 @@ function Signup() {
                             </div>
 
                             <span className="text-xl font-bold text-gray-950">
-                                Mohit
+                                Prospect
                                 <span className="text-gray-400">
-                                    Cart
+                                    Pick
                                 </span>
                             </span>
                         </Link>
@@ -262,7 +262,7 @@ function Signup() {
 
                             <p className="mt-3 text-sm leading-6 text-[#746b61]">
                                 Fill in your details to start
-                                shopping with MohitCart.
+                                shopping with ProspectPick.
                             </p>
 
                         </div>
