@@ -186,9 +186,9 @@ function Login() {
                             </div>
 
                             <span className="text-xl font-bold text-gray-950">
-                                Mohit
+                                Prospect
                                 <span className="text-gray-400">
-                                    Cart
+                                    Pick
                                 </span>
                             </span>
                         </Link>
