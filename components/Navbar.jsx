@@ -327,62 +327,95 @@ function Navbar() {
 
 
                 {/* =========================
-                    MOBILE MENU
-                ========================== */}
+    MOBILE MENU
+========================== */}
                 <div
                     className={`overflow-hidden border-t border-gray-100 bg-white transition-all duration-300 md:hidden ${
                         mobileOpen
-                            ? "max-h-[500px] opacity-100"
+                            ? "max-h-[600px] opacity-100"
                             : "max-h-0 border-t-0 opacity-0"
                     }`}
                 >
-
                     <div className="space-y-1 px-5 py-5">
 
-                        <Link
+                        <NavLink
                             to="/"
                             onClick={closeMenu}
-                            className="block rounded-xl px-4 py-3 text-sm font-medium text-gray-700 transition hover:bg-gray-100"
+                            className={({ isActive }) =>
+                                `block rounded-xl px-4 py-3 text-sm font-medium transition ${
+                                    isActive
+                                        ? "bg-gray-100 text-gray-950"
+                                        : "text-gray-700 hover:bg-gray-100"
+                                }`
+                            }
                         >
                             Home
-                        </Link>
+                        </NavLink>
 
 
-                        <Link
-                            to="/"
+                        <NavLink
+                            to="/our-story"
                             onClick={closeMenu}
-                            className="block rounded-xl px-4 py-3 text-sm font-medium text-gray-700 transition hover:bg-gray-100"
+                            className={({ isActive }) =>
+                                `block rounded-xl px-4 py-3 text-sm font-medium transition ${
+                                    isActive
+                                        ? "bg-gray-100 text-gray-950"
+                                        : "text-gray-700 hover:bg-gray-100"
+                                }`
+                            }
                         >
-                            Shop
-                        </Link>
+                            Our Story
+                        </NavLink>
+
+
+                        <NavLink
+                            to="/faq"
+                            onClick={closeMenu}
+                            className={({ isActive }) =>
+                                `block rounded-xl px-4 py-3 text-sm font-medium transition ${
+                                    isActive
+                                        ? "bg-gray-100 text-gray-950"
+                                        : "text-gray-700 hover:bg-gray-100"
+                                }`
+                            }
+                        >
+                            FAQ
+                        </NavLink>
+
+
+                        <NavLink
+                            to="/contact"
+                            onClick={closeMenu}
+                            className={({ isActive }) =>
+                                `block rounded-xl px-4 py-3 text-sm font-medium transition ${
+                                    isActive
+                                        ? "bg-gray-100 text-gray-950"
+                                        : "text-gray-700 hover:bg-gray-100"
+                                }`
+                            }
+                        >
+                            Contact
+                        </NavLink>
 
 
                         {isLoggedIn && (
                             <>
-                                <Link
+                                <NavLink
                                     to="/orders"
                                     onClick={closeMenu}
-                                    className="block rounded-xl px-4 py-3 text-sm font-medium text-gray-700 transition hover:bg-gray-100"
+                                    className={({ isActive }) =>
+                                        `block rounded-xl px-4 py-3 text-sm font-medium transition ${
+                                            isActive
+                                                ? "bg-gray-100 text-gray-950"
+                                                : "text-gray-700 hover:bg-gray-100"
+                                        }`
+                                    }
                                 >
                                     Orders
-                                </Link>
+                                </NavLink>
 
 
-                                <Link
-                                    to="/cart"
-                                    onClick={closeMenu}
-                                    className="flex items-center justify-between rounded-xl px-4 py-3 text-sm font-medium text-gray-700 transition hover:bg-gray-100"
-                                >
-                                    <span>Cart</span>
 
-                                    {cartCount > 0 && (
-                                        <span className="flex min-w-6 items-center justify-center rounded-full bg-gray-950 px-2 py-1 text-[10px] font-bold text-white">
-                                            {cartCount > 99
-                                                ? "99+"
-                                                : cartCount}
-                                        </span>
-                                    )}
-                                </Link>
                             </>
                         )}
 
@@ -422,7 +455,6 @@ function Navbar() {
                         )}
 
                     </div>
-
                 </div>
 
             </header>
